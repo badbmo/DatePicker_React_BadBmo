@@ -1,6 +1,10 @@
 import React from "react";
 import "../style/datePicker.css";
 import { useState } from "react";
+import DoubleArrowLeft from "../assets/angles-left-solid.svg";
+import DoubleArrowRight from "../assets/angles-right-solid.svg";
+import ArrowLeft from "../assets/angle-left-solid.svg";
+import ArrowRight from "../assets/angle-right-solid.svg";
 
 /**
  * Date Picker Component
@@ -55,15 +59,24 @@ function DatePicker(lang = "default") {
 		}
 	};
 
+	const prevYear = () => {
+		setYear(year - 1);
+	};
+	const nextYear = () => {
+		setYear(year + 1);
+	};
+
 	return (
 		<React.Fragment>
 			<div className="datePicker__modal">
 				<div className="datePicker__header">
-					<button className="button__prevMonth" onClick={prevMonth}></button>
-					<h2>
+					<img className="datePicker__nav" src={DoubleArrowLeft} alt="previous year" onClick={prevYear} />
+					<img className="datePicker__nav" src={ArrowLeft} alt="previous month" onClick={prevMonth} />
+					<h2 className="datePicker__title">
 						{monthsList[month]} {year}
 					</h2>
-					<button className="button__nextMonth" onClick={nextMonth}></button>
+					<img className="datePicker__nav" src={ArrowRight} alt="next month" onClick={nextMonth} />
+					<img className="datePicker__nav" src={DoubleArrowRight} alt="next year" onClick={nextYear} />
 				</div>
 			</div>
 		</React.Fragment>

@@ -1,0 +1,34 @@
+.datePicker__modal {
+	position: relative;
+	left: 0;
+	width: 300px;
+	min-height: 350px;
+	background: #fff;
+	box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+	overflow: hidden;
+	padding: 25px 30px;
+}
+
+.datePicker__container {
+	position: absolute;
+}
+
+/*input*/
+
+.datePicker__input input {
+	margin: 0.5rem 0;
+	border: 1px solid lightgray;
+	padding: 0.5rem;
+	border-radius: 4px;
+}
+
+.datePicker__input input:focus{
+	background-color: #f8f8fa;
+	outline: solid 1px lightgray ;
+}
+
+.datePicker__input label {
+	margin: 0.5rem;
+	font-weight: 500;
+}

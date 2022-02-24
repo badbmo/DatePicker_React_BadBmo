@@ -15,8 +15,8 @@ function DatePicker(lang = "default") {
 	const date = new Date();
 	const currentYear = date.getFullYear();
 	const currentMonth = date.getMonth();
-	const currentDay = date.getDate();
-	const daysList = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	// const currentDay = date.getDate();
+	const daysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = [
 		"January",
 		"February",
@@ -31,17 +31,11 @@ function DatePicker(lang = "default") {
 		"November",
 		"December",
 	];
-	const monthsSize = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	// const monthLong = date.toLocaleString(lang, { month: "long" });
-	// const weekday = date.toLocaleString(lang, { weekday: "short" });
-
-	// const isLeapYear = (year) => {
-	// 	return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
-	// };
+	// const monthsSize = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 	const [year, setYear] = useState(currentYear);
 	const [month, setMonth] = useState(currentMonth);
-	const [day, setDay] = useState(currentDay);
+	// const [day, setDay] = useState(currentDay);
 
 	const prevMonth = () => {
 		setMonth(month - 1);
@@ -66,6 +60,16 @@ function DatePicker(lang = "default") {
 		setYear(year + 1);
 	};
 
+	const renderWeekdays = () => {
+		return daysList.map((day, index) => {
+			return (
+				<div key={index} className="weekdays__day">
+					{day}
+				</div>
+			);
+		});
+	};
+
 	return (
 		<React.Fragment>
 			<div className="datePicker__modal">
@@ -77,6 +81,9 @@ function DatePicker(lang = "default") {
 					</h2>
 					<img className="datePicker__nav" src={ArrowRight} alt="next month" onClick={nextMonth} />
 					<img className="datePicker__nav" src={DoubleArrowRight} alt="next year" onClick={nextYear} />
+				</div>
+				<div className="datePicker__body">
+					<div className="datePicker__weekdays">{renderWeekdays()}</div>
 				</div>
 			</div>
 		</React.Fragment>

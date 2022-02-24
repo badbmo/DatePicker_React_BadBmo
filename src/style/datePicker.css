@@ -15,19 +15,27 @@
 }
 
 .datePicker__nav {
+	cursor: pointer;
 	max-width: 1rem;
 	max-height: 1rem;
 }
 
-.datePicker__header{
+.datePicker__header {
 	display: flex;
 	justify-content: space-between;
 	gap: 1rem;
 }
 
-.datePicker__title{
+.datePicker__title {
 	min-width: 8rem;
 	text-align: center;
+}
+
+.datePicker__weekdays {
+	margin: 1rem 0;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	column-gap: 1rem;
 }
 
 /*input*/
@@ -39,9 +47,9 @@
 	border-radius: 4px;
 }
 
-.datePicker__input input:focus{
+.datePicker__input input:focus {
 	background-color: #f8f8fa;
-	outline: solid 1px lightgray ;
+	outline: solid 1px lightgray;
 }
 
 .datePicker__input label {

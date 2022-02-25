@@ -16,7 +16,7 @@ function DatePicker(lang = "default") {
 	const currentYear = date.getFullYear();
 	const currentMonth = date.getMonth();
 	// const currentDay = date.getDate();
-	const daysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = [
 		"January",
 		"February",
@@ -61,12 +61,23 @@ function DatePicker(lang = "default") {
 	};
 
 	const renderWeekdays = () => {
-		return daysList.map((day, index) => {
+		return weekdaysList.map((day, index) => {
 			return (
 				<div key={index} className="weekdays__day">
 					{day}
 				</div>
 			);
+		});
+	};
+
+	const renderDaysInMonth = (year, month) => {
+		const numberOfDaysinMonth = new Date(year, month + 1, 0).getDate();
+		const arrayOfDays = [...Array(numberOfDaysinMonth).keys()].map((i) => i + 1);
+		console.log(arrayOfDays);
+		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
+		console.log(new Date(year, month), firstWeekdayOfMonth);
+		return arrayOfDays.map((day, index) => {
+			return <div>{day}</div>;
 		});
 	};
 
@@ -84,6 +95,7 @@ function DatePicker(lang = "default") {
 				</div>
 				<div className="datePicker__body">
 					<div className="datePicker__weekdays">{renderWeekdays()}</div>
+					<div>{renderDaysInMonth(year, month)}</div>
 				</div>
 			</div>
 		</React.Fragment>

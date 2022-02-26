@@ -38,6 +38,26 @@
 	column-gap: 1rem;
 }
 
+.datePicker__allDays{
+	margin: 1rem 0;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	column-gap: 1rem;
+	row-gap: 2rem;
+}
+
+.allDays__day{
+cursor: pointer;
+}
+
+.allDays__day:hover{
+	background-color: red;
+	}
+
+	.allDays__blank{
+		background-color: blue;
+	}
+
 /*input*/
 
 .datePicker__input input {

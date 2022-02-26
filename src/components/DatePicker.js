@@ -71,14 +71,27 @@ function DatePicker(lang = "default") {
 	};
 
 	const renderDaysInMonth = (year, month) => {
-		const numberOfDaysinMonth = new Date(year, month + 1, 0).getDate();
-		const arrayOfDays = [...Array(numberOfDaysinMonth).keys()].map((i) => i + 1);
-		console.log(arrayOfDays);
+		const totalDaysinMonth = new Date(year, month + 1, 0).getDate();
 		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
-		console.log(new Date(year, month), firstWeekdayOfMonth);
-		return arrayOfDays.map((day, index) => {
-			return <div>{day}</div>;
-		});
+		const arrayOfDays = [...Array(totalDaysinMonth).keys()].map((i) => i + 1);
+		const arrayOfBlank = [...Array(firstWeekdayOfMonth).keys()];
+		console.log(new Date(year, month), firstWeekdayOfMonth, arrayOfBlank);
+		return [
+			arrayOfBlank.map((blank, index) => {
+				return (
+					<div key={index} className="allDays__blank">
+						{blank}
+					</div>
+				);
+			}),
+			arrayOfDays.map((day, index) => {
+				return (
+					<div key={index} className="allDays__day">
+						{day}
+					</div>
+				);
+			}),
+		];
 	};
 
 	return (
@@ -95,7 +108,7 @@ function DatePicker(lang = "default") {
 				</div>
 				<div className="datePicker__body">
 					<div className="datePicker__weekdays">{renderWeekdays()}</div>
-					<div>{renderDaysInMonth(year, month)}</div>
+					<div className="datePicker__allDays">{renderDaysInMonth(year, month)}</div>
 				</div>
 			</div>
 		</React.Fragment>

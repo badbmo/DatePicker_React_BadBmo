@@ -12,10 +12,6 @@ import ArrowRight from "../assets/angle-right-solid.svg";
  */
 
 function DatePicker(lang = "default") {
-	const date = new Date();
-	const currentYear = date.getFullYear();
-	const currentMonth = date.getMonth();
-	// const currentDay = date.getDate();
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = [
 		"January",
@@ -31,11 +27,17 @@ function DatePicker(lang = "default") {
 		"November",
 		"December",
 	];
-	// const monthsSize = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+	const date = new Date();
+	const currentYear = date.getFullYear();
+	const currentMonth = date.getMonth();
+	const currentDay = date.getDate();
 
 	const [year, setYear] = useState(currentYear);
 	const [month, setMonth] = useState(currentMonth);
-	// const [day, setDay] = useState(currentDay);
+	const [day, setDay] = useState(currentDay);
+	const selectedDate = new Date(year, month, day);
+	console.log("date choisie", selectedDate);
 
 	const prevMonth = () => {
 		setMonth(month - 1);
@@ -75,7 +77,7 @@ function DatePicker(lang = "default") {
 		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
 		const arrayOfDays = [...Array(totalDaysinMonth).keys()].map((i) => i + 1);
 		const arrayOfBlank = [...Array(firstWeekdayOfMonth).keys()];
-		console.log(new Date(year, month), firstWeekdayOfMonth, arrayOfBlank);
+		// console.log(new Date(year, month), firstWeekdayOfMonth, arrayOfBlank);
 		return [
 			arrayOfBlank.map((blank, index) => {
 				return (
@@ -86,7 +88,7 @@ function DatePicker(lang = "default") {
 			}),
 			arrayOfDays.map((day, index) => {
 				return (
-					<div key={index} className="allDays__day">
+					<div key={index} className="allDays__day" onClick={() => setDay(day)}>
 						{day}
 					</div>
 				);

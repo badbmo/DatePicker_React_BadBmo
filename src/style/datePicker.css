@@ -72,7 +72,7 @@
 	justify-items: center;
 }
 
-.allDays__day__container {
+.allDays__day {
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -82,16 +82,25 @@
 	border-radius: 100%;
 }
 
-.allDays__day{
-	font-size: 0.8rem;
+.allDays__day:hover {
+	background-color: #ececff;
 }
 
-.allDays__day__container:hover {
-	background-color: #ececff;
+.allDays__day--selected {
+	background-color: #93ad18!important;
+	color: white;
+}
+
+.allDays__day--current {
+	background-color: #f6bbbb;
 }
 
 .allDays__blank {
 	background-color: blue;
+}
+
+.allDays__day__inner {
+	font-size: 0.8rem;
 }
 
 /*input*/

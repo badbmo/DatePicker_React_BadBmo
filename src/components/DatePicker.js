@@ -13,30 +13,18 @@ import ArrowRight from "../assets/angle-right-solid.svg";
 
 function DatePicker() {
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-	const monthsList = [
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December",
-	];
+	const monthsList = ["January","February","March","April","May","June","July","August","September","October","November","December",];
 
 	const date = new Date();
 	const currentYear = date.getFullYear();
 	const currentMonth = date.getMonth();
 	const currentDay = date.getDate();
+	const currentDate = new Date(currentYear, currentMonth, currentDay);
+	console.log("date du jour", currentDate);
 
 	const [year, setYear] = useState(currentYear);
 	const [month, setMonth] = useState(currentMonth);
-	const [day, setDay] = useState(currentDay);
-	const selectedDate = new Date(year, month, day);
+	const [selectedDate, setSelectedDate] = useState(currentDate)
 	console.log("date choisie", selectedDate);
 
 	const prevMonth = () => {
@@ -62,6 +50,22 @@ function DatePicker() {
 		setYear(year + 1);
 	};
 
+	const test = (day) => {
+		const clickedDate = new Date(year, month, day);
+		setSelectedDate(clickedDate);
+	};
+
+	const getClassName = (day) => {
+		const clickedDate = new Date(year, month, day);
+		if (clickedDate.getTime() === selectedDate.getTime()) {
+			return " allDays__day--selected";
+		}
+		if (clickedDate.getTime() === currentDate.getTime()) {
+			return " allDays__day--current";
+		}
+		return "";
+	};
+
 	const renderWeekdays = () => {
 		return weekdaysList.map((day, index) => {
 			return (
@@ -77,7 +81,6 @@ function DatePicker() {
 		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
 		const arrayOfDays = [...Array(totalDaysinMonth).keys()].map((i) => i + 1);
 		const arrayOfBlank = [...Array(firstWeekdayOfMonth).keys()];
-		// console.log(new Date(year, month), firstWeekdayOfMonth, arrayOfBlank);
 		return [
 			arrayOfBlank.map((blank, index) => {
 				return (
@@ -88,8 +91,8 @@ function DatePicker() {
 			}),
 			arrayOfDays.map((day, index) => {
 				return (
-					<div key={index} className="allDays__day__container" onClick={() => setDay(day)}>
-						<div className="allDays__day">{day}</div>
+					<div key={index} className={"allDays__day" + getClassName(day)} onClick={() => test(day)}>
+						<div className={"allDays__day__inner"}>{day}</div>
 					</div>
 				);
 			}),

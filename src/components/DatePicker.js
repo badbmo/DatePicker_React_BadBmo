@@ -11,7 +11,7 @@ import ArrowRight from "../assets/angle-right-solid.svg";
  * @returns {JSX} React component
  */
 
-function DatePicker(lang = "default") {
+function DatePicker() {
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = [
 		"January",
@@ -88,8 +88,8 @@ function DatePicker(lang = "default") {
 			}),
 			arrayOfDays.map((day, index) => {
 				return (
-					<div key={index} className="allDays__day" onClick={() => setDay(day)}>
-						{day}
+					<div key={index} className="allDays__day__container" onClick={() => setDay(day)}>
+						<div className="allDays__day">{day}</div>
 					</div>
 				);
 			}),
@@ -100,13 +100,22 @@ function DatePicker(lang = "default") {
 		<React.Fragment>
 			<div className="datePicker__modal">
 				<div className="datePicker__header">
-					<img className="datePicker__nav" src={DoubleArrowLeft} alt="previous year" onClick={prevYear} />
-					<img className="datePicker__nav" src={ArrowLeft} alt="previous month" onClick={prevMonth} />
-					<h2 className="datePicker__title">
-						{monthsList[month]} {year}
-					</h2>
-					<img className="datePicker__nav" src={ArrowRight} alt="next month" onClick={nextMonth} />
-					<img className="datePicker__nav" src={DoubleArrowRight} alt="next year" onClick={nextYear} />
+					<div className="datePicker__nav" onClick={prevYear}>
+						<img className="datePicker__nav__arrow" src={DoubleArrowLeft} alt="previous year" />
+					</div>
+					<div className="datePicker__nav" onClick={prevMonth}>
+						<img className="datePicker__nav__arrow" src={ArrowLeft} alt="previous month" />
+					</div>
+					<div className="datePicker__title">
+						<div className="datePicker__title__year">{year}</div>
+						<div className="datePicker__title__month">{monthsList[month]}</div>
+					</div>
+					<div className="datePicker__nav" onClick={nextMonth}>
+						<img className="datePicker__nav__arrow" src={ArrowRight} alt="next month" />
+					</div>
+					<div className="datePicker__nav" onClick={nextYear}>
+						<img className="datePicker__nav__arrow" src={DoubleArrowRight} alt="next year" />
+					</div>
 				</div>
 				<div className="datePicker__body">
 					<div className="datePicker__weekdays">{renderWeekdays()}</div>

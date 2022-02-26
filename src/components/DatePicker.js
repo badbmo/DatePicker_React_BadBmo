@@ -24,7 +24,7 @@ function DatePicker() {
 
 	const [year, setYear] = useState(currentYear);
 	const [month, setMonth] = useState(currentMonth);
-	const [selectedDate, setSelectedDate] = useState(currentDate)
+	const [selectedDate, setSelectedDate] = useState(currentDate);
 	console.log("date choisie", selectedDate);
 
 	const prevMonth = () => {
@@ -78,14 +78,24 @@ function DatePicker() {
 
 	const renderDaysInMonth = (year, month) => {
 		const totalDaysinMonth = new Date(year, month + 1, 0).getDate();
-		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
 		const arrayOfDays = [...Array(totalDaysinMonth).keys()].map((i) => i + 1);
-		const arrayOfBlank = [...Array(firstWeekdayOfMonth).keys()];
+
+		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
+		const totalDaysinPreviousMonth = new Date(year, month, 0).getDate();
+		const arrayOfPreviousDays = [];
+		for (var i = 1; i <= firstWeekdayOfMonth; i++) {
+			arrayOfPreviousDays.push(totalDaysinPreviousMonth - firstWeekdayOfMonth + i);
+		}
+
+		const gridSize = 42;
+		const numberOfNextDays = gridSize - (arrayOfDays.length + arrayOfPreviousDays.length);
+		const arrayOfNextDays = [...Array(numberOfNextDays).keys()].map((i) => i + 1);
+		
 		return [
-			arrayOfBlank.map((blank, index) => {
+			arrayOfPreviousDays.map((day, index) => {
 				return (
 					<div key={index} className="allDays__blank">
-						{blank}
+						{day}
 					</div>
 				);
 			}),
@@ -93,6 +103,13 @@ function DatePicker() {
 				return (
 					<div key={index} className={"allDays__day" + getClassName(day)} onClick={() => test(day)}>
 						<div className={"allDays__day__inner"}>{day}</div>
+					</div>
+				);
+			}),
+			arrayOfNextDays.map((day, index) => {
+				return (
+					<div key={index} className="allDays__blank">
+						{day}
 					</div>
 				);
 			}),

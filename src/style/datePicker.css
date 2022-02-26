@@ -87,7 +87,7 @@
 }
 
 .allDays__day--selected {
-	background-color: #93ad18!important;
+	background-color: #93ad18 !important;
 	color: white;
 }
 
@@ -95,12 +95,18 @@
 	background-color: #f6bbbb;
 }
 
-.allDays__blank {
-	background-color: blue;
-}
-
 .allDays__day__inner {
 	font-size: 0.8rem;
+}
+
+.allDays__blank {
+	font-size: 0.8rem;
+	color: lightgray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
 }
 
 /*input*/

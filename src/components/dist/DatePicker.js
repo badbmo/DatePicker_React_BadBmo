@@ -27,6 +27,8 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 /**
  * Date Picker Component with input - select a date in a customizable calendar
+ * @param {string} idInput id of input and for of label
+ * @param {string} nameOfLabel name displayed in label
  * @returns {JSX} React component
  */
 function DatePicker(_ref) {

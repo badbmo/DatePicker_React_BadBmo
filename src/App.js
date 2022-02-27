@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import DatePicker from "./components/DatePicker";
+import DatePicker from "./components/lib/DatePicker";
 
 function App() {
 	return (

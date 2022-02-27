@@ -2,16 +2,20 @@
   "name": "datepicker-react-by-badbmo",
   "version": "1.0.1",
   "description": "A customizable React datepicker",
-  "main": "DatePicker.js",
+  "main": "dist/DatePicker.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && NODE_ENV=production babel src/components --out-dir dist --copy-files"
+    "build": "set NODE_ENV=production rm -rf dist && babel ./lib --out-dir dist --copy-files"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/badbmo/DatePicker_React_BadBmo.git"
   },
-  "author": "",
+  "author": "badbmo",
+  "keywords": [
+    "react",
+    "datepicker"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/badbmo/DatePicker_React_BadBmo/issues"
@@ -24,9 +28,7 @@
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.16.11"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.12.1"
   }
 }

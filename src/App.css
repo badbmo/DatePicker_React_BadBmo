@@ -8,7 +8,6 @@
 	margin: auto;
 }
 
-.App {
-	display: flex;
-	justify-content: center;
+.App{
+	padding: 5% 20%;
 }

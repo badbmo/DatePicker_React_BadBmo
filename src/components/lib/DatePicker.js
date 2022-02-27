@@ -11,7 +11,7 @@ import ArrowRight from "./assets/angle-right-solid.svg";
  * @returns {JSX} React component
  */
 
-function DatePicker() {
+function DatePicker({idInput, nameOfLabel}) {
 	//You can change these list items but DO NOT CHANGE THE LENGTH OF ARRAYS!
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = ["January","February","March","April","May","June","July","August","September","October","November","December",];
@@ -144,11 +144,9 @@ function DatePicker() {
 	};
 
 	return (
-		<div className="datePicker__container">
-			<div className="datePicker__input">
-				<label htmlFor="date">Date</label>
-				<input id="date" type="text" onClick={handleModal} value={selectedDate.toLocaleDateString()} />
-			</div>
+		<React.Fragment>
+				<label htmlFor={idInput}>{nameOfLabel}</label>
+				<input id={idInput} type="text" onClick={handleModal} value={selectedDate.toLocaleDateString()}/>
 			{modal ? (
 				<div className="datePicker__modal">
 					<div className="datePicker__header">
@@ -177,7 +175,7 @@ function DatePicker() {
 			) : (
 				""
 			)}
-		</div>
+		</React.Fragment>
 	);
 }
 

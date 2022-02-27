@@ -5,7 +5,7 @@ import DatePicker from "./components/lib/DatePicker";
 function App() {
 	return (
 		<div className="App">
-			<DatePicker />
+			<DatePicker idInput={"date"} nameOfLabel={"Date"}/>
 		</div>
 	);
 }

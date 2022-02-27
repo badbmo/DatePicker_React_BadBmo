@@ -107,6 +107,7 @@
 /*input*/
 
 .datePicker__input input {
+	cursor: pointer;
 	margin: 0.5rem 0;
 	border: 1px solid lightgray;
 	padding: 0.5rem;

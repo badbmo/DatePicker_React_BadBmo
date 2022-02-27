@@ -58,6 +58,7 @@ function DatePicker() {
 	const chooseThisDate = (day) => {
 		const clickedDate = new Date(year, month, day);
 		setSelectedDate(clickedDate);
+		handleModal();
 	};
 
 	const getClassName = (day) => {

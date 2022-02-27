@@ -1,6 +1,6 @@
 {
   "name": "datepicker-react-by-badbmo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A customizable React datepicker",
   "main": "DatePicker.js",
   "scripts": {

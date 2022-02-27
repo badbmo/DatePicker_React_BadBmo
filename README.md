@@ -2,9 +2,7 @@
 
 ## Documentation
 
-You can find the npm package here: 
-
-Visual :
+You can find the npm package [here] (https://www.npmjs.com/package/datepicker-react-by-badbmo)
 
 ## Installation
 
@@ -13,21 +11,21 @@ Visual :
 - Use yarn or npm to install the component.
 ```bash
 #yarn
-yarn add
+yarn add datepicker-react-by-badbmo
 #npm
-npm install
+npm i datepicker-react-by-badbmo
 ```
 ### Add it to your project
 
 - Import the date picker in your React app:
 ```
-import { DatePicker } from customized-react-modal-lazez
+import { DatePicker } from datepicker-react-by-badbmo
 ```
 
 ### Need an example ?
 
 In this very projet, you can find an exemple of implementation:
-[here] ()
+[here] (https://github.com/badbmo/DatePicker_React_BadBmo/blob/main/src/App.js)
 
 Happy coding ! :)
 

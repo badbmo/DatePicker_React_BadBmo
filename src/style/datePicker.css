@@ -1,6 +1,5 @@
 .datePicker__modal {
-	position: relative;
-	left: 0;
+	position: absolute;
 	width: 300px;
 	min-height: 350px;
 	background: #fff;
@@ -9,10 +8,6 @@
 	overflow: hidden;
 	padding: 25px 30px;
 	color: #666;
-}
-
-.datePicker__container {
-	position: absolute;
 }
 
 .datePicker__nav {

@@ -2,7 +2,7 @@
 
 ## Documentation
 
-You can find the npm package [here] (https://www.npmjs.com/package/datepicker-react-by-badbmo)
+You can find the npm package [here](https://www.npmjs.com/package/datepicker-react-by-badbmo)
 
 ## Installation
 
@@ -24,8 +24,7 @@ import { DatePicker } from datepicker-react-by-badbmo
 
 ### Need an example ?
 
-In this very projet, you can find an exemple of implementation:
-[here] (https://github.com/badbmo/DatePicker_React_BadBmo/blob/main/src/App.js)
+In this very projet, you can find an exemple of implementation [here](https://github.com/badbmo/DatePicker_React_BadBmo/blob/main/src/App.js)
 
 Happy coding ! :)
 

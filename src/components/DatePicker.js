@@ -1,17 +1,18 @@
 import React from "react";
-import "../style/datePicker.css";
 import { useState } from "react";
+import "../style/datePicker.css";
 import DoubleArrowLeft from "../assets/angles-left-solid.svg";
 import DoubleArrowRight from "../assets/angles-right-solid.svg";
 import ArrowLeft from "../assets/angle-left-solid.svg";
 import ArrowRight from "../assets/angle-right-solid.svg";
 
 /**
- * Date Picker Component
+ * Date Picker Component with input - select a date in a customizable calendar
  * @returns {JSX} React component
  */
 
 function DatePicker() {
+	//You can change these list items but DO NOT CHANGE THE LENGTH OF ARRAYS!
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = ["January","February","March","April","May","June","July","August","September","October","November","December",];
 
@@ -55,12 +56,19 @@ function DatePicker() {
 		setYear(year + 1);
 	};
 
+	//chooseThisDate function - set selectedDate state to cliked date (year state, month state, day clicked) and close modal
 	const chooseThisDate = (day) => {
 		const clickedDate = new Date(year, month, day);
 		setSelectedDate(clickedDate);
 		handleModal();
 	};
 
+	/**
+	 * getClassName function - compare every day in current month to selectedDate (in state) and today.
+	 * Give className accordingly.
+	 * @param {number} day day (number)
+	 * @returns {string} className : selected, current or nothing
+	 */
 	const getClassName = (day) => {
 		const clickedDate = new Date(year, month, day);
 		if (clickedDate.getTime() === selectedDate.getTime()) {
@@ -72,6 +80,10 @@ function DatePicker() {
 		return "";
 	};
 
+	/**
+	 * renderWeekdays function - loop on weekdaysList
+	 * @returns {JSX} div for each day of weekdaysList
+	 */
 	const renderWeekdays = () => {
 		return weekdaysList.map((day, index) => {
 			return (
@@ -82,10 +94,17 @@ function DatePicker() {
 		});
 	};
 
+	/**
+	 * renderDaysInMonth function - render all the days in the calendar
+	 * @returns {JSX} Arrays of jsx: div for prev month days/ div for current month days/ div for next month days
+	 */
 	const renderDaysInMonth = () => {
 		const totalDaysinMonth = new Date(year, month + 1, 0).getDate();
 		const arrayOfDays = [...Array(totalDaysinMonth).keys()].map((i) => i + 1);
 
+		//take number of days in prev month (ex: 31)
+		//substract first Weekday of current month (ex: tuesday = 2) +i while i <= weekday number
+		//give the days of previous month to be displayed (ex: 29, 30, 31)
 		const firstWeekdayOfMonth = new Date(year, month, 1).getDay();
 		const totalDaysinPreviousMonth = new Date(year, month, 0).getDate();
 		const arrayOfPreviousDays = [];
@@ -93,6 +112,8 @@ function DatePicker() {
 			arrayOfPreviousDays.push(totalDaysinPreviousMonth - firstWeekdayOfMonth + i);
 		}
 
+		//DO NOT CHANGE GRID SIZE !
+		//if [prev days + current days] < 42, add days next month to be displayed while i <= 42
 		const gridSize = 42;
 		const numberOfNextDays = gridSize - (arrayOfDays.length + arrayOfPreviousDays.length);
 		const arrayOfNextDays = [...Array(numberOfNextDays).keys()].map((i) => i + 1);
@@ -157,7 +178,6 @@ function DatePicker() {
 				""
 			)}
 		</div>
-
 	);
 }
 

@@ -1,8 +1,9 @@
 {
   "name": "datepicker-react-by-badbmo",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A customizable React datepicker",
   "main": "dist/DatePicker.js",
+  "files": [ "dist", "README.md" ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "set NODE_ENV=production rm -rf dist && babel ./lib --out-dir dist --copy-files"

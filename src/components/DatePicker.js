@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import "../style/datePicker.css";
-import DoubleArrowLeft from "../assets/angles-left-solid.svg";
-import DoubleArrowRight from "../assets/angles-right-solid.svg";
-import ArrowLeft from "../assets/angle-left-solid.svg";
-import ArrowRight from "../assets/angle-right-solid.svg";
+import "./style/datePicker.css";
+import DoubleArrowLeft from "./assets/angles-left-solid.svg";
+import DoubleArrowRight from "./assets/angles-right-solid.svg";
+import ArrowLeft from "./assets/angle-left-solid.svg";
+import ArrowRight from "./assets/angle-right-solid.svg";
 
 /**
  * Date Picker Component with input - select a date in a customizable calendar

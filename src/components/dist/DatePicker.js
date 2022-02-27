@@ -1,4 +1,3 @@
-// eslint-disable-next-line strict
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22,17 +21,19 @@ var _angleRightSolid = _interopRequireDefault(require("./assets/angle-right-soli
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// eslint-disable-next-line no-func-assign
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-// eslint-disable-next-line no-mixed-operators
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /**
  * Date Picker Component with input - select a date in a customizable calendar
  * @returns {JSX} React component
  */
-function DatePicker() {
+function DatePicker(_ref) {
+  let {
+    idInput,
+    nameOfLabel
+  } = _ref;
   //You can change these list items but DO NOT CHANGE THE LENGTH OF ARRAYS!
   const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const monthsList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -163,18 +164,14 @@ function DatePicker() {
     })];
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: "datePicker__container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "datePicker__input"
-  }, /*#__PURE__*/_react.default.createElement("label", {
-    htmlFor: "date"
-  }, "Date"), /*#__PURE__*/_react.default.createElement("input", {
-    id: "date",
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: idInput
+  }, nameOfLabel), /*#__PURE__*/_react.default.createElement("input", {
+    id: idInput,
     type: "text",
     onClick: handleModal,
     value: selectedDate.toLocaleDateString()
-  })), modal ? /*#__PURE__*/_react.default.createElement("div", {
+  }), modal ? /*#__PURE__*/_react.default.createElement("div", {
     className: "datePicker__modal"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "datePicker__header"

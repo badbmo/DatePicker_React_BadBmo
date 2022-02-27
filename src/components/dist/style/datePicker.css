@@ -117,7 +117,7 @@
 }
 
 /*style the input of the datepicker*/
-.datePicker__input input {
+input {
 	cursor: pointer;
 	margin: 0.5rem 0;
 	border: 1px solid lightgray;
@@ -125,12 +125,12 @@
 	border-radius: 4px;
 }
 
-.datePicker__input input:focus {
+input:focus {
 	background-color: #f8f8fa;
 	outline: solid 1px lightgray;
 }
 
-.datePicker__input label {
+label {
 	margin: 0.5rem;
 	font-weight: 500;
 }

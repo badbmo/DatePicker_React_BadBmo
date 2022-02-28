@@ -148,7 +148,7 @@ function DatePicker({idInput, nameOfLabel}) {
 	return (
 		<React.Fragment>
 				<label htmlFor={idInput}>{nameOfLabel}</label>
-				<input id={idInput} type="text" onClick={handleModal} value={selectedDate.toLocaleDateString()}/>
+				<input readOnly id={idInput} type="text" onClick={handleModal} value={selectedDate.toLocaleDateString()}/>
 			{modal ? (
 				<div className="datePicker__modal">
 					<div className="datePicker__header">

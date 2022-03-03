@@ -10,10 +10,11 @@ import ArrowRight from "./assets/angle-right-solid.svg";
  * Date Picker Component with input - select a date in a customizable calendar
  * @param {string} idInput id of input and for of label
  * @param {string} nameOfLabel name displayed in label
+ * @param {function} getSelectedDate function to get the selected date value in a Date format
  * @returns {JSX} React component
  */
 
-function DatePicker({idInput, nameOfLabel}) {
+function DatePicker({idInput, nameOfLabel, getSelectedDate}) {
 	//You can change these list items but DO NOT CHANGE THE LENGTH OF ARRAYS!
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = ["January","February","March","April","May","June","July","August","September","October","November","December",];
@@ -63,6 +64,7 @@ function DatePicker({idInput, nameOfLabel}) {
 		const clickedDate = new Date(year, month, day);
 		setSelectedDate(clickedDate);
 		handleModal();
+		getSelectedDate(clickedDate);
 	};
 
 	/**

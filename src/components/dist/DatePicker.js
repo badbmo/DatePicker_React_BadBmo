@@ -1,3 +1,4 @@
+// eslint-disable-next-line strict
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21,20 +22,24 @@ var _angleRightSolid = _interopRequireDefault(require("./assets/angle-right-soli
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// eslint-disable-next-line no-func-assign
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
+// eslint-disable-next-line no-mixed-operators
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /**
  * Date Picker Component with input - select a date in a customizable calendar
  * @param {string} idInput id of input and for of label
  * @param {string} nameOfLabel name displayed in label
+ * @param {function} getSelectedDate function to get the selected date value in a Date format
  * @returns {JSX} React component
  */
 function DatePicker(_ref) {
   let {
     idInput,
-    nameOfLabel
+    nameOfLabel,
+    getSelectedDate
   } = _ref;
   //You can change these list items but DO NOT CHANGE THE LENGTH OF ARRAYS!
   const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -84,6 +89,7 @@ function DatePicker(_ref) {
     const clickedDate = new Date(year, month, day);
     setSelectedDate(clickedDate);
     handleModal();
+    getSelectedDate(clickedDate);
   };
   /**
    * getClassName function - compare every day in current month to selectedDate (in state) and today.
@@ -169,6 +175,7 @@ function DatePicker(_ref) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("label", {
     htmlFor: idInput
   }, nameOfLabel), /*#__PURE__*/_react.default.createElement("input", {
+    readOnly: true,
     id: idInput,
     type: "text",
     onClick: handleModal,

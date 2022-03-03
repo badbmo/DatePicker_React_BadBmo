@@ -19,7 +19,7 @@ npm i datepicker-react-by-badbmo
 
 - Import the date picker in your React app:
 ```
-import { DatePicker } from datepicker-react-by-badbmo
+import DatePicker from "datepicker-react-by-badbmo"
 ```
 
 ### Need an example ?

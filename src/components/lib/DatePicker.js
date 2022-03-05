@@ -14,7 +14,7 @@ import ArrowRight from "./assets/angle-right-solid.svg";
  * @returns {JSX} React component
  */
 
-function DatePicker({idInput, nameOfLabel, getSelectedDate}) {
+function DatePicker({ idInput, nameOfLabel, getSelectedDate }) {
 	//You can change these list items but DO NOT CHANGE THE LENGTH OF ARRAYS!
 	const weekdaysList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 	const monthsList = ["January","February","March","April","May","June","July","August","September","October","November","December",];
@@ -149,31 +149,33 @@ function DatePicker({idInput, nameOfLabel, getSelectedDate}) {
 
 	return (
 		<React.Fragment>
-				<label htmlFor={idInput}>{nameOfLabel}</label>
-				<input readOnly id={idInput} type="text" onClick={handleModal} value={selectedDate.toLocaleDateString()}/>
+			<label htmlFor={idInput}>{nameOfLabel}</label>
+			<input readOnly id={idInput} type="text" onClick={handleModal} value={selectedDate.toLocaleDateString()} />
 			{modal ? (
-				<div className="datePicker__modal">
-					<div className="datePicker__header">
-						<div className="datePicker__nav" onClick={prevYear}>
-							<img className="datePicker__nav__arrow" src={DoubleArrowLeft} alt="previous year" />
+				<div className="datePicker__background" onClick={handleModal}>
+					<div className="datePicker__modal" onClick={(e) => e.stopPropagation()}>
+						<div className="datePicker__header">
+							<div className="datePicker__nav" onClick={prevYear}>
+								<img className="datePicker__nav__arrow" src={DoubleArrowLeft} alt="previous year" />
+							</div>
+							<div className="datePicker__nav" onClick={prevMonth}>
+								<img className="datePicker__nav__arrow" src={ArrowLeft} alt="previous month" />
+							</div>
+							<div className="datePicker__title">
+								<div className="datePicker__title__year">{year}</div>
+								<div className="datePicker__title__month">{monthsList[month]}</div>
+							</div>
+							<div className="datePicker__nav" onClick={nextMonth}>
+								<img className="datePicker__nav__arrow" src={ArrowRight} alt="next month" />
+							</div>
+							<div className="datePicker__nav" onClick={nextYear}>
+								<img className="datePicker__nav__arrow" src={DoubleArrowRight} alt="next year" />
+							</div>
 						</div>
-						<div className="datePicker__nav" onClick={prevMonth}>
-							<img className="datePicker__nav__arrow" src={ArrowLeft} alt="previous month" />
+						<div className="datePicker__body">
+							<div className="datePicker__weekdays">{renderWeekdays()}</div>
+							<div className="datePicker__allDays">{renderDaysInMonth()}</div>
 						</div>
-						<div className="datePicker__title">
-							<div className="datePicker__title__year">{year}</div>
-							<div className="datePicker__title__month">{monthsList[month]}</div>
-						</div>
-						<div className="datePicker__nav" onClick={nextMonth}>
-							<img className="datePicker__nav__arrow" src={ArrowRight} alt="next month" />
-						</div>
-						<div className="datePicker__nav" onClick={nextYear}>
-							<img className="datePicker__nav__arrow" src={DoubleArrowRight} alt="next year" />
-						</div>
-					</div>
-					<div className="datePicker__body">
-						<div className="datePicker__weekdays">{renderWeekdays()}</div>
-						<div className="datePicker__allDays">{renderDaysInMonth()}</div>
 					</div>
 				</div>
 			) : (

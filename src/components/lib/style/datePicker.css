@@ -1,6 +1,19 @@
+/*Style the datepicker background*/
+.datePicker__background {
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(196, 196, 196, 0.4);
+	overflow: auto;
+	display: flex;
+}
+
+
 /*Style the datepicker modal*/
 .datePicker__modal {
-	position: absolute;
 	width: 300px;
 	min-height: 350px;
 	background: #fff;
@@ -9,6 +22,7 @@
 	overflow: hidden;
 	padding: 25px 30px;
 	color: #666;
+	margin: auto;
 }
 
 /*Style the datepicker header (nav & title)*/

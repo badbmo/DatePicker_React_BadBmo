@@ -181,7 +181,11 @@ function DatePicker(_ref) {
     onClick: handleModal,
     value: selectedDate.toLocaleDateString()
   }), modal ? /*#__PURE__*/_react.default.createElement("div", {
-    className: "datePicker__modal"
+    className: "datePicker__background",
+    onClick: handleModal
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "datePicker__modal",
+    onClick: e => e.stopPropagation()
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "datePicker__header"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -224,7 +228,7 @@ function DatePicker(_ref) {
     className: "datePicker__weekdays"
   }, renderWeekdays()), /*#__PURE__*/_react.default.createElement("div", {
     className: "datePicker__allDays"
-  }, renderDaysInMonth()))) : "");
+  }, renderDaysInMonth())))) : "");
 }
 
 var _default = DatePicker;
